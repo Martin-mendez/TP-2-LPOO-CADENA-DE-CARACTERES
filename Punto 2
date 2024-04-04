@@ -1,0 +1,27 @@
+/* 2. Realiza un programa que cuente cuántas vocales tiene una cadena de
+caracteres ingresada por el usuario.*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char cadena[100];
+    int contador_vocales = 0;
+
+    printf("Ingrese una cadena de caracteres: ");
+    fgets(cadena, sizeof(cadena), stdin);
+
+    for (int i = 0; cadena[i] != '\0'; i++) {
+        char c = cadena[i];
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
+            char c_lower = (c >= 'A' && c <= 'Z') ? c + 32 : c; // Convertimos a minúscula
+            if (c_lower == 'a' || c_lower == 'e' || c_lower == 'i' || c_lower == 'o' || c_lower == 'u') {
+                contador_vocales++;
+            }
+        }
+    }
+
+    printf("La cadena ingresada tiene %d vocales.\n", contador_vocales);
+
+    return 0;
+}
