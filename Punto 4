@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char cadena[100], char_original, char_reemplazo;
+
+    printf("Ingrese una cadena de caracteres: ");
+    fgets(cadena, sizeof(cadena), stdin);
+    cadena[strcspn(cadena, "\n")] = '\0'; // Eliminar el salto de línea
+
+    printf("Ingrese el carácter a reemplazar: ");
+    scanf(" %c", &char_original);
+
+    printf("Ingrese el carácter de reemplazo: ");
+    scanf(" %c", &char_reemplazo);
+
+    // Reemplazar los caracteres en la cadena
+    for (int i = 0; cadena[i] != '\0'; i++) {
+        if (cadena[i] == char_original) {
+            cadena[i] = char_reemplazo;
+        }
+    }
+
+    printf("La cadena modificada es: %s\n", cadena);
+
+    return 0;
+}
